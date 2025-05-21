@@ -1,0 +1,27 @@
+name: Cypress API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: í³¥ Checkout do cÃ³digo
+        uses: actions/checkout@v3
+
+      - name: í´§ Setup do Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: í³¦ Instalar dependÃªncias
+        run: npm install
+
+      - name: í·ª Rodar testes Cypress
+        run: npx cypress run
+
